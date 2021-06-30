@@ -11,6 +11,12 @@ const resolvers = {
         
     },
     Mutate: {
+
+        login: async (parent, {username, password}) => {
+            const data = await User.findOne({username})
+
+        },
+
         postUser: async (parent, obj) => {
             const data = await User.create(obj)
 
@@ -18,7 +24,7 @@ const resolvers = {
            
         },
         postShoe: async (parent, obj) => {
-            const data = await Shoe.create(obj)
+            const data = await Shoes.create(obj)
 
             return data
            
