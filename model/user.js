@@ -1,3 +1,4 @@
+const { ObjectID } = require("bson")
 const {model, Schema} = require("mongoose")
 const {Shoes} = require("./shoes")
 
@@ -11,7 +12,10 @@ const userSchema = new Schema({
     password: {
         type: String
     },
-    shoes: [Shoes]
+    shoes: {
+        type: Schema.Types.ObjectId,
+        ref: "Shoes"
+    }
 })
 
 const User = model("User", userSchema)
